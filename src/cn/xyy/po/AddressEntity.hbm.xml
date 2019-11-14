@@ -20,8 +20,9 @@
         <property name="type">
             <column name="type" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
-        <many-to-one name="customerEntity" class="cn.xyy.po.CustomerEntity">
-            <column name="cust_id" not-null="true"/>
-        </many-to-one>
+        <set name="customers" table="cust_addr">
+            <key column="addr_id"/>
+            <many-to-many column="cust_id" class="cn.xyy.po.CustomerEntity"/>
+        </set>
     </class>
 </hibernate-mapping>

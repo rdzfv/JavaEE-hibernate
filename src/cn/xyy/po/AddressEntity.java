@@ -1,6 +1,8 @@
 package cn.xyy.po;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class AddressEntity {
     private int addressId;
@@ -8,7 +10,7 @@ public class AddressEntity {
     private String zipcode;
     private String phone;
     private String type;
-    private CustomerEntity customerEntity;
+    private Set customers = new HashSet(0);
 
     public int getAddressId() {
         return addressId;
@@ -41,12 +43,12 @@ public class AddressEntity {
         this.type = type;
     }
 
-    public CustomerEntity getCustomerEntity() {
-        return customerEntity;
+    public Set getCustomers() {
+        return customers;
     }
 
-    public void setCustomerEntity(CustomerEntity customerEntity) {
-        this.customerEntity = customerEntity;
+    public void setCustomers(Set customers) {
+        this.customers = customers;
     }
 
     @Override

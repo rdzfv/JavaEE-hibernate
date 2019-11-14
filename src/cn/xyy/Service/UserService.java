@@ -9,6 +9,7 @@ import cn.xyy.po.CustomerEntity;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.opensymphony.xwork2.ActionContext;
 import org.hibernate.Transaction;
@@ -22,7 +23,7 @@ public class UserService {
         request = (Map) ctx.get("request");
         CustomerDAO c_dao = new CustomerDAO();
         loginUser = (CustomerEntity) c_dao.findById(loginUser.getCustomerId());
-        address.setCustomerEntity(loginUser); //注释1
+        //address.setCustomerEntity(loginUser); //注释1
         loginUser.getAddresses().add(address);
         Transaction tran = null;
         try {
@@ -39,6 +40,15 @@ public class UserService {
             c_dao.getSession().close();
         }
     }
+
+    //        Set<CustomerEntity> resultLoginUsers = new HashSet(0);
+//        Iterator<CustomerEntity> it = resultLoginUsers.iterator();
+//        while (it.hasNext()) {
+//            CustomerEntity loginUser = it.next();
+//            CustomerEntity resultLoginUser = c_dao.findById(loginUser.getCustomerId());
+//            resultLoginUsers.add(resultLoginUser);
+//        }
+//    loginUser = c_dao.findById(loginUser.getCustomerId());
 
 
     public boolean login(CustomerEntity loginUser) {

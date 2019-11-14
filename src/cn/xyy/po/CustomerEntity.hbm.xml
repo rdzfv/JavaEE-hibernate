@@ -26,9 +26,9 @@
         <property name="email" type="string">
             <column name="Email" length="100"/>
         </property>
-        <set name="addresses" inverse="true" cascade="all" lazy="false">
+        <set name="addresses" inverse="true" cascade="all" lazy="false" table="cust_addr">
             <key column="cust_id" not-null="true"/>
-            <one-to-many class="cn.xyy.po.AddressEntity"/>
+            <many-to-many column="addr_id" class="cn.xyy.po.AddressEntity"/>
         </set>
     </class>
 </hibernate-mapping>
