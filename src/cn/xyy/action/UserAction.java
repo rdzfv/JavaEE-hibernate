@@ -6,6 +6,7 @@ package cn.xyy.action;
 //import cn.xyy.HelloStructs2.UserBean;
 
 import cn.xyy.Service.UserService;
+import cn.xyy.po.AddressEntity;
 import cn.xyy.po.CustomerEntity;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,19 +21,33 @@ import java.util.Map;
 
 public class UserAction {
     private CustomerEntity loginUser;
-
     public CustomerEntity getLoginUser() {
         return loginUser;
     }
-
     public void setLoginUser(CustomerEntity loginUser) {
         this.loginUser = loginUser;
+    }
+
+    private AddressEntity address;
+
+    public AddressEntity getAddress() {
+        return address;
+    }
+
+    public void setAddress(AddressEntity address) {
+        this.address = address;
     }
 
     public String login() {
         UserService userServ = new UserService();
         if (userServ.login(loginUser)) return "loginsuccess";
         else return "loginfail";
+    }
+
+    public String addAddr() {
+        UserService userServ = new UserService();
+        if (userServ.addAddr(loginUser, address)) return "addAddrsuccess";
+        else return "addAddrfail";
     }
 
     public String register() {

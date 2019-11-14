@@ -23,16 +23,6 @@
         <s:textfield type="text" name="loginUser.birthday" label="修改生日" value="%{#request.loginUser.birthday}"/>
         <s:textfield type="text" name="loginUser.name" label="修改姓名" value="%{#request.loginUser.name}"/>
         <s:textfield type="text" name="loginUser.sex" label="修改性别" value="%{#request.loginUser.sex}"/>
-        <s:textfield type="text" name="loginUser.contactInfo.phone" label="修改电话号码"
-                     value="%{#request.loginUser.contactInfo.phone}"/>
-        <s:textfield type="text" name="loginUser.contactInfo.email" label="修改邮箱"
-                     value="%{#request.loginUser.contactInfo.email}"/>
-        <s:textfield type="text" name="loginUser.contactInfo.address" label="修改住址"
-                     value="%{#request.loginUser.contactInfo.address}"/>
-        <s:textfield type="text" name="loginUser.contactInfo.zipcode" label="修改邮编"
-                     value="%{#request.loginUser.contactInfo.zipcode}"/>
-        <s:textfield type="text" name="loginUser.contactInfo.fax" label="修改传真"
-                     value="%{#request.loginUser.contactInfo.fax}"/>
         <s:submit value="修改"/>
     </s:form>
     <s:form action="Userdelete" method="post">
@@ -40,5 +30,32 @@
         <s:submit value="删除"/>
     </s:form>
     <a href="./allItems">查看商品信息</a>
+<table>
+    <tr>
+        <td>个人信息：</td>
+    </tr>
+    <tr>
+        <td>用户名：</td>
+        <td><s:property value="#request.loginUser.account"/></td>
+    </tr>
+    <s:iterator value="#request.loginUser.addresses" status="st">
+    <tr>
+        <td>地址<s:property value="#st.count"/>：</td>
+    </tr>
+    <tr>
+        <td>详细地址：</td>
+        <td><s:property value="detail"/></td>
+    <tr>
+        </s:iterator>
+</table>
+添加新地址：<br>
+<s:form action="UseraddAddr" method="post">
+    <s:hidden name="loginUser.customerId" value="%{#request.loginUser.customerId}"/>
+    <s:textfield name="address.detail" label="详细地址"/>
+    <s:textfield name="address.zipcode" label="邮政编码"/>
+    <s:textfield name="address.phone" label="联系电话"/>
+    <s:textfield name="address.type" label="地址类型（office,home,etc.）"/>
+    <s:submit value="添加"/>
+</s:form>
 </body>
 </html>

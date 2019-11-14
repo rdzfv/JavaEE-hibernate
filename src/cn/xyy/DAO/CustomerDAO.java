@@ -14,6 +14,12 @@ import org.apache.commons.logging.LogFactory;
 public class CustomerDAO extends BaseHibernateDAO {
     private Log log = LogFactory.getLog(CustomerDAO.class);
 
+    public CustomerEntity findById(int id) {
+        String queryString = "from CustomerEntity as user where customerId='" + id + "'";
+        Query queryObject = getSession().createQuery(queryString);
+        return (CustomerEntity) queryObject.list().get(0);
+    }
+
     public List findByHql(String hql) {
         log.debug("finding Customer instance by hql");
         try {
