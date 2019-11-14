@@ -13,39 +13,30 @@ public class AddressEntity {
     public int getAddressId() {
         return addressId;
     }
-
     public void setAddressId(int addressId) {
         this.addressId = addressId;
     }
-
     public String getDetail() {
         return detail;
     }
-
     public void setDetail(String detail) {
         this.detail = detail;
     }
-
     public String getZipcode() {
         return zipcode;
     }
-
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
-
     public String getPhone() {
         return phone;
     }
-
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
     public String getType() {
         return type;
     }
-
     public void setType(String type) {
         this.type = type;
     }

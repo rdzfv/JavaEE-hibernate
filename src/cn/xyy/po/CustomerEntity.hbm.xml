@@ -30,6 +30,5 @@
             <key column="cust_id" not-null="true"/>
             <one-to-many class="cn.xyy.po.AddressEntity"/>
         </set>
-
     </class>
 </hibernate-mapping>
