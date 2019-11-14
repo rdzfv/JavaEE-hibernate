@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!--<struts>-->
+<!--    <constant name="struts.custom.i18n.resources" value="cn.xyy.properties/xyy"/>-->
+<!--    <constant name="struts.i18n.encoding" value="UTF-8" />-->
+<!--    <package name="xyy" extends="struts-default" namespace="/">-->
+<!--        <interceptors>-->
+<!--            <interceptor name="authority" class="cn.xyy.interceptors.Authorityinterceptor"/>-->
+<!--        </interceptors>-->
+
+<!--        <global-results>-->
+<!--            <result name="sqlExcp">/loginException.jsp</result>-->
+<!--        </global-results>-->
+<!--        <global-exception-mappings>-->
+<!--            <exception-mapping exception="java.sql.SQLException" result="sqlExcp"/>-->
+<!--        </global-exception-mappings>-->
+
+<!--        <action name="login" class="cn.xyy.action.UserAction" method="login">-->
+<!--            <exception-mapping result="userExcp" exception="cn.xyy.exception.UserException"/>-->
+<!--            <result name="userExcp">/loginException.jsp</result>-->
+<!--            <result name="success">/loginSuccess.jsp</result>-->
+<!--            <result name="fail">/index.jsp</result>-->
+<!--            <result name="exception">/loginException.jsp</result>-->
+<!--            &lt;!&ndash;            <result name="input">/index.jsp</result>&ndash;&gt;-->
+<!--        </action>-->
+<!--&lt;!&ndash;        <action name="register" class="cn.xyy.action.UserAction" method="register">&ndash;&gt;-->
+<!--&lt;!&ndash;            <result name="registersuccess">/registerSuccess.jsp</result>&ndash;&gt;-->
+<!--&lt;!&ndash;            <result name="registerfail">/registerFailed.jsp</result>&ndash;&gt;-->
+<!--&lt;!&ndash;            <result name="input">/register.jsp</result>&ndash;&gt;-->
+<!--&lt;!&ndash;        </action>&ndash;&gt;-->
+<!--        <action name="allItems" class="cn.xyy.action.ItemAction" method="getAllItems">-->
+<!--            <result name="login">/index.jsp</result>-->
+<!--            <result name="success">/itemList.jsp</result>-->
+<!--            &lt;!&ndash; 配置系统默认拦截器 &ndash;&gt;-->
+<!--            <interceptor-ref name="defaultStack"/>-->
+<!--            &lt;!&ndash; 配置authority拦截器 &ndash;&gt;-->
+<!--            <interceptor-ref name="authority"/>-->
+<!--        </action>-->
+<!--    </package>-->
+<!--</struts>-->
+<struts>
+    <package name="xyy" extends="struts-default" namespace="/">
+        <action name="Userlogin" class="cn.xyy.action.UserAction" method="login">
+            <result name="loginsuccess">/loginSuccess.jsp</result>
+            <result name="loginfail">/index.jsp</result>
+        </action>
+        <action name="Userupdate" class="cn.xyy.action.UserAction" method="update">
+            <result name="updatesuccess">/loginSuccess.jsp</result>
+            <result name="updatefail">/CURDFail.jsp</result>
+        </action>
+        <action name="Userdelete" class="cn.xyy.action.UserAction" method="delete">
+            <result name="deletesuccess">/loginSuccess.jsp</result>
+            <result name="deletefail">/CURDFail.jsp</result>
+        </action>
+        <action name="register" class="cn.xyy.action.UserAction" method="register">
+            <result name="registersuccess">/registerSuccess.jsp</result>
+            <result name="registerfail">/register.jsp</result>
+        </action>
+    </package>
+</struts>

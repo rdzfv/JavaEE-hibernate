@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="cn.xyy.po.AddressEntity" table="address" schema="hibernatedb">
+        <id name="addressId">
+            <column name="addressID" sql-type="int(11)"/>
+        </id>
+        <property name="detail">
+            <column name="detail" sql-type="varchar(200)" length="200" not-null="true"/>
+        </property>
+        <property name="zipcode">
+            <column name="zipcode" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="phone">
+            <column name="phone" sql-type="varchar(20)" length="20" not-null="true"/>
+        </property>
+        <property name="type">
+            <column name="type" sql-type="varchar(20)" length="20" not-null="true"/>
+        </property>
+        <many-to-one name="customerEntity" class="cn.xyy.po.CustomerEntity">
+            <column name="cust_id" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
