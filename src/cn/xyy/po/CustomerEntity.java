@@ -8,7 +8,7 @@ public class CustomerEntity {
     private String account;
     private String password;
     private String name;
-    private int sex;
+    private Integer sex;
     private Date birthday;
     private String email;
     private Set addresses;
@@ -37,10 +37,12 @@ public class CustomerEntity {
     public void setName(String name) {
         this.name = name;
     }
-    public int getSex() {
+
+    public Integer getSex() {
         return sex;
     }
-    public void setSex(int sex) {
+
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
     public Date getBirthday() {
