@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="cn.xyy.po.AddressEntity" table="address2" schema="hibernatedb">
+    <class name="cn.xyy.po.AddressEntity" table="address3" schema="hibernatedb">
         <id name="addressId">
             <column name="addressID" sql-type="int(11)"/>
         </id>
@@ -20,9 +20,8 @@
         <property name="type">
             <column name="type" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
-        <set name="customers" table="cust_addr" inverse="true" lazy="false" cascade="all" fetch="join">
-            <key column="addr_id"/>
-            <many-to-many column="cust_id" class="cn.xyy.po.CustomerEntity"/>
-        </set>
+        <many-to-one name="customerEntity" class="cn.xyy.po.CustomerEntity" fetch="select" unique="true">
+            <column name="customerID"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

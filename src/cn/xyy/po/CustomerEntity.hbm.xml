@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="cn.xyy.po.CustomerEntity" table="customer" catalog="hibernatedb">
+    <class name="cn.xyy.po.CustomerEntity" table="customer2" catalog="hibernatedb">
         <id name="customerId" type="int">
             <column name="customerID"/>
             <generator class="increment"/>
@@ -26,9 +26,6 @@
         <property name="email" type="string">
             <column name="Email" length="100"/>
         </property>
-        <set name="addresses" table="cust_addr" lazy="false" cascade="all" fetch="join">
-            <key column="cust_id" not-null="true"/>
-            <many-to-many column="addr_id" class="cn.xyy.po.AddressEntity"/>
-        </set>
+        <one-to-one name="addressEntity" class="cn.xyy.po.AddressEntity" cascade="all" property-ref="customerEntity"/>
     </class>
 </hibernate-mapping>

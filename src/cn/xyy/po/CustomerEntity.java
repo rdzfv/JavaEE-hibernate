@@ -11,7 +11,7 @@ public class CustomerEntity {
     private Integer sex;
     private Date birthday;
     private String email;
-    private Set addresses;
+    private AddressEntity addressEntity;
 
     public int getCustomerId() {
         return customerId;
@@ -58,11 +58,11 @@ public class CustomerEntity {
         this.email = email;
     }
 
-    public Set getAddresses() {
-        return addresses;
+    public AddressEntity getAddressEntity() {
+        return addressEntity;
     }
 
-    public void setAddresses(Set addresses) {
-        this.addresses = addresses;
+    public void setAddressEntity(AddressEntity addressEntity) {
+        this.addressEntity = addressEntity;
     }
 }

@@ -44,17 +44,17 @@ public class UserAction {
         else return "loginfail";
     }
 
-    public String addAddr() {
-        UserService userServ = new UserService();
-        if (userServ.addAddr(loginUser, address)) return "addAddrsuccess";
-        else return "addAddrfail";
-    }
-
-    public String delAddr() {
-        UserService userServ = new UserService();
-        if (userServ.delAddr(loginUser, address)) return "delAddrsuccess";
-        else return "delAddrfail";
-    }
+//    public String addAddr() {
+//        UserService userServ = new UserService();
+//        if (userServ.addAddr(loginUser, address)) return "addAddrsuccess";
+//        else return "addAddrfail";
+//    }
+//
+//    public String delAddr() {
+//        UserService userServ = new UserService();
+//        if (userServ.delAddr(loginUser, address)) return "delAddrsuccess";
+//        else return "delAddrfail";
+//    }
 
     public String register() {
         UserService userServ = new UserService();

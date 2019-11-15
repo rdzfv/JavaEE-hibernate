@@ -10,7 +10,7 @@ public class AddressEntity {
     private String zipcode;
     private String phone;
     private String type;
-    private Set customers = new HashSet(0);
+    private CustomerEntity customerEntity;
 
     public int getAddressId() {
         return addressId;
@@ -43,12 +43,12 @@ public class AddressEntity {
         this.type = type;
     }
 
-    public Set getCustomers() {
-        return customers;
+    public CustomerEntity getCustomerEntity() {
+        return customerEntity;
     }
 
-    public void setCustomers(Set customers) {
-        this.customers = customers;
+    public void setCustomerEntity(CustomerEntity customerEntity) {
+        this.customerEntity = customerEntity;
     }
 
     @Override
