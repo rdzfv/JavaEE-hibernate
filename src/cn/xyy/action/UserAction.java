@@ -50,6 +50,12 @@ public class UserAction {
         else return "addAddrfail";
     }
 
+    public String delAddr() {
+        UserService userServ = new UserService();
+        if (userServ.delAddr(loginUser, address)) return "delAddrsuccess";
+        else return "delAddrfail";
+    }
+
     public String register() {
         UserService userServ = new UserService();
         System.out.println(loginUser.getBirthday());

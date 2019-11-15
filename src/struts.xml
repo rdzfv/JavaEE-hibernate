@@ -47,6 +47,10 @@
             <result name="loginsuccess">/loginSuccess.jsp</result>
             <result name="loginfail">/index.jsp</result>
         </action>
+        <action name="UserdelAddr" class="cn.xyy.action.UserAction" method="delAddr">
+            <result name="delAddrsuccess">/loginSuccess.jsp</result>
+            <result name="delAddrfail">/loginSuccess.jsp</result>
+        </action>
         <action name="UseraddAddr" class="cn.xyy.action.UserAction" method="addAddr">
             <result name="addAddrsuccess">/loginSuccess.jsp</result>
             <result name="addAddrfail">/loginSuccess.jsp</result>

@@ -2,14 +2,12 @@ package cn.xyy.Service;
 
 //import cn.xyy.HelloStructs2.UserBean;
 
+import cn.xyy.DAO.AddressDAO;
 import cn.xyy.DAO.CustomerDAO;
 import cn.xyy.po.AddressEntity;
 import cn.xyy.po.CustomerEntity;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import com.opensymphony.xwork2.ActionContext;
 import org.hibernate.Transaction;
@@ -17,6 +15,31 @@ import org.hibernate.Transaction;
 
 public class UserService {
     private Map<String, Object> request, session;
+
+    public boolean delAddr(CustomerEntity loginUser, AddressEntity address) {
+        ActionContext ctx = ActionContext.getContext();
+        request = (Map) ctx.get("request");
+        CustomerDAO c_dao = new CustomerDAO();
+        AddressDAO a_dao = new AddressDAO();
+        loginUser = c_dao.findById(loginUser.getCustomerId());
+        address = a_dao.findById(address.getAddressId());
+        loginUser.getAddresses().remove(address);
+//        printAddress(loginUser);
+        Transaction tran = null;
+        try {
+            tran = c_dao.getSession().beginTransaction();
+            c_dao.update(loginUser);
+            tran.commit();
+            request.put("loginUser", loginUser);
+            request.put("tip", "删除地址成功！");
+            return true;
+        } catch (Exception e) {
+            if (tran != null) tran.rollback();
+            return false;
+        } finally {
+            c_dao.getSession().close();
+        }
+    }
 
     public boolean addAddr(CustomerEntity loginUser, AddressEntity address) {
         ActionContext ctx = ActionContext.getContext();
