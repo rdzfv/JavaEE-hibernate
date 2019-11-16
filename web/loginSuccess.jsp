@@ -37,7 +37,7 @@
 <s:if test="#request.loginUser.addressEntity">
 <s:form action="UserdelAddr" method="post">
 <s:hidden name="loginUser.customerId" value="%{#request.loginUser.customerId}"/>
-<s:hidden name="addressEntity.addressId" value="%{addressId}"/>
+<s:hidden name="address.addressId" value="%{addressId}"/>
 <tr>
     <td>详细地址：</td>
     <td><s:property value="#request.loginUser.addressEntity.detail"/></td>
@@ -51,10 +51,10 @@
     添加新地址：<br>
     <s:form action="UseraddAddr" method="post">
         <s:hidden name="loginUser.customerId" value="%{#request.loginUser.customerId}"/>
-        <s:textfield name="addressEntity.detail" label="详细地址"/>
-        <s:textfield name="addressEntity.zipcode" label="邮政编码"/>
-        <s:textfield name="addressEntity.phone" label="联系电话"/>
-        <s:textfield name="addressEntity.type" label="地址类型（office,home,etc.）"/>
+        <s:textfield name="address.detail" label="详细地址"/>
+        <s:textfield name="address.zipcode" label="邮政编码"/>
+        <s:textfield name="address.phone" label="联系电话"/>
+        <s:textfield name="address.type" label="地址类型（office,home,etc.）"/>
         <s:submit value="添加"/>
     </s:form>
     </s:else>

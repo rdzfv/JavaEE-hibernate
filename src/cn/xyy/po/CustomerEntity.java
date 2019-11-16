@@ -45,15 +45,19 @@ public class CustomerEntity {
     public void setSex(Integer sex) {
         this.sex = sex;
     }
+
     public Date getBirthday() {
         return birthday;
     }
+
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
